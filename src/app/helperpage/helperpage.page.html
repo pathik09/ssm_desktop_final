@@ -1,0 +1,135 @@
+<ion-content>
+
+  <div class="wrapper" style="position: relative;top: 75px;
+  ">
+
+    <div *ngIf="currentDiv=='one'" style="position: relative;top:65px;" class="fade-in one">
+      <div style="text-align: center;">
+        <img style="height: 10em;" src="../../assets/logo.png" alt="">
+        <h2 style="font-weight: bold;">JOIN AS A STAFF</h2>
+      </div>
+
+      <div
+        style="display: flex;justify-content: center;align-items: center;position: relative;top: 30px;flex-direction: column;text-align: left;">
+        <ion-label
+          style="text-align: center;color: rgba(128, 58, 0, 0.74);display: flex;max-width: 80%;font-family: imapct;">
+          Enter Shop
+          Owner
+          Number To
+          Request Joining As A Staff.
+
+        </ion-label>
+        <div style="width: 90%;display: flex;justify-content: center;flex-direction: column;margin-top: 15px;">
+
+          <div style="display: flex;">
+
+            <div style="width: 5%;">
+
+            </div>
+            <div style="width: 65%;">
+
+              <ion-list class="line-input">
+                <ion-item lines="none" color="none">
+                  <ion-input type='tel' [(ngModel)]="phone" maxlength="10" ></ion-input>
+                </ion-item>
+              </ion-list>
+
+            </div>
+
+
+          </div>
+
+
+          <div style="margin-top: 15px;">
+
+            <ion-button (click)="sendRequest()" style="margin-top: 5px;" mode='ios' color="success" expand="block">
+              REQUEST TO
+              JOIN
+            </ion-button>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="currentDiv=='two'" style="position: relative;top:65px;" class="fade-in one">
+      <div style="text-align: center;">
+        <img style="height: 10em;" src="../../assets/logo.png" alt="">
+        <h2 style="font-weight: bold;">JOIN AS A HELPER</h2>
+      </div>
+
+
+      <div style="margin-top: 40px;padding-left: 1em;padding-right: 1em;">
+
+
+
+
+
+        <div style="margin-top:20px;">
+          <div class="loader5"></div>
+        </div>
+
+        <ion-label
+          style="text-align: center;color: rgba(128, 0, 28, 0.705);display: flex;justify-content: center;align-items: center;margin-top: 25px;font-weight: bold;font-family: Impact;">
+          AWAITING ACCEPTANCE
+        </ion-label>
+
+
+        <ion-button disabled='true' style="margin-top: 20px;" mode='ios' color="success" expand="block">REQUESTED
+        </ion-button>
+
+        <ion-button (click)="withdrawRequest()" style="margin-top: 10px;" fill='outline' mode='ios' color="danger"
+          expand="block">WITHDRAW
+        </ion-button>
+
+
+      </div>
+
+    </div>
+
+    <div *ngIf="currentDiv=='three'" style="position: relative;top:65px;" class="fade-in one">
+      <div style="text-align: center;">
+        <img style="height: 10em;" src="../../assets/logo.png" alt="">
+        <h2 style="font-weight: bold;">An Owner Invited You To His Shop</h2>
+      </div>
+
+
+      <div style="margin-top: 40px;padding-left: 1em;padding-right: 1em;">
+
+
+
+
+
+        <div style="margin-top:20px;">
+          <div class="loader5"></div>
+        </div>
+
+        <ion-label
+          style="text-align: center;color: rgba(128, 0, 28, 0.705);display: flex;justify-content: center;align-items: center;margin-top: 25px;font-weight: bold;font-family: Impact;">
+          AWAITING ACCEPTANCE
+        </ion-label>
+
+
+        <ion-button (click)="acceptReq()" style="margin-top: 20px;" mode='ios' color="success" expand="block">ACCEPT
+        </ion-button>
+
+        <ion-button (click)="withdrawRequest()" style="margin-top: 10px;" fill='outline' mode='ios' color="danger"
+          expand="block">REJECT
+        </ion-button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+
+</ion-footer>

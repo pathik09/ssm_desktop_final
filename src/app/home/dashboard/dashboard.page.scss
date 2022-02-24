@@ -1,0 +1,375 @@
+///hello font
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Francois+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.header {
+    border-bottom-right-radius: 50% 75px;
+
+    background-color: rgba(128, 0, 0, 0.849);
+    padding: 6px;
+}
+
+.textalignleft {
+    text-align: left;
+}
+.hello {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 0.6em;
+    letter-spacing: -2px;
+}
+.name {
+    font-family: "Francois One", sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 46px;
+    position: relative;
+    top: -0.7em;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    min-height: 5em;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.801);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.082);
+    transition: 0.3s;
+    border-radius: 25px;
+    border-color:green;
+    padding-top: 25px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    .cardtxt {
+        padding-top: 10px;
+        color: rgba(0, 0, 0, 0.459);
+        padding-bottom: 10px;
+        padding-left: 5px;
+        font-weight: bold;
+        font-family: "Hammersmith One", sans-serif;
+    }
+}
+
+.todo {
+    font-family: "Open Sans", sans-serif;
+    color: black;
+    letter-spacing: -3px;
+    font-size: 33px;
+    word-spacing: -1px;
+    margin-top: 24px;
+}
+.spacebetween {
+    display: flex;
+    justify-content: space-between;
+}
+.viewall {
+    font-family: "Anton", sans-serif;
+    color: purple;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 32px;
+}
+ion-list {
+    background: none !important ;
+}
+.listhead {
+    display: flex;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+.icon1 {
+    border-radius: 50%;
+    background: rgba(128, 0, 128, 0.849);
+    height: 3.4em;
+    width: 3.4em;
+    text-align: center;
+    color: white;
+}
+.inline {
+    display: flex;
+    flex-direction: column;
+}
+.texthead {
+    color: rgba(0, 0, 0, 0.87);
+    position: relative;
+    top: -0.3em;
+    padding-left: 20px;
+    font-family: "Hammersmith One", sans-serif;
+    letter-spacing: -1px;
+}
+.textlabel {
+    color: rgba(0, 0, 0, 0.342);
+    position: relative;
+    top: -1em;
+    padding-left: 24px;
+    font-family: "Hammersmith One", sans-serif;
+    letter-spacing: -1px;
+    font-size: 15px;
+}
+.icon2 {
+    border-radius: 50%;
+    background: skyblue;
+    height: 3.4em;
+    width: 3.4em;
+    text-align: center;
+    color: white;
+}
+.icon3 {
+    border-radius: 50%;
+    background: rgba(128, 0, 0, 0.466);
+    height: 3.4em;
+    width: 3.4em;
+    text-align: center;
+    color: white;
+}
+
+@keyframes rota2 {
+    from {
+        transform: rotate(-225deg);
+    }
+    to {
+        transform: rotate(-45deg);
+    }
+}
+
+@-o-keyframes rota2 {
+    from {
+        transform: rotate(-225deg);
+    }
+    to {
+        transform: rotate(-45deg);
+    }
+}
+
+@-moz-keyframes rota2 {
+    from {
+        transform: rotate(-225deg);
+    }
+    to {
+        transform: rotate(-45deg);
+    }
+}
+@-webkit-keyframes rota2 {
+    from {
+        transform: rotate(-225deg);
+    }
+    to {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes rota {
+    from {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(315deg);
+    }
+}
+@-o-keyframes rota {
+    from {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(315deg);
+    }
+}
+@moz-keyframes rota {
+    from {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(315deg);
+    }
+}
+@-webkit-keyframes rota {
+    from {
+        transform: rotate(-45deg);
+    }
+    to {
+        transform: rotate(315deg);
+    }
+}
+
+.left {
+    border: #ff851bc0 solid 3px;
+    height: 120px;
+    width: 120px;
+    border-radius: 120px;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    transform: rotate(315deg);
+    animation: rota 2000ms linear;
+    -o-animation: rota 2000ms linear;
+    -moz-animation: rota 2000ms linear;
+    -webkit-animation: rota 2000ms linear;
+}
+.middle {
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 150px;
+    position: relative;
+    z-index: 4;
+}
+.right {
+    border: #ff6b00 solid 3px;
+    height: 120px;
+    width: 120px;
+    border-radius: 120px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    position: absolute;
+    transform: rotate(-45deg);
+    animation: rota2 1000ms linear;
+    -moz-animation: rota2 1000ms linear;
+    -o-animation: rota2 1000ms linear;
+    -webkit-animation: rota2 1000ms linear;
+}
+@keyframes popover {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-o-keyframes popover {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes popover {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes popover {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.circlewwrap {
+    padding-left: 0.5em;
+    width: 30%;
+}
+.respcardwrapper {
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+}
+.card {
+    width: 43%;
+}
+
+@media only screen and (max-device-width: 300px) {
+    .card {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+  
+}
+.flexdisp {
+    display: flex;
+}
+.centertext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.scrollwrapper {
+    width: auto;
+    overflow-x: scroll;
+    display: flex;
+    padding: 5px;
+}
+.cards {
+    margin-left: 12px;
+    min-width: 160px;
+    min-height: 100px;
+    border-radius: 16px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.055), 0 3px 6px rgba(0, 0, 0, 0.13);
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    transition: 0.2s;
+    text-align: center;
+    
+}
+.line-input {
+    margin: 0 !important;
+    background: none !important;
+    padding: 0 !important;
+    ion-item {
+        --border-color: transparent !important;
+        --highlight-height: 0;
+        border: 1px solid var(--ion-color-primary);
+        border-radius: 4px;
+
+        &.item-has-focus {
+            border: 1px solid var(--ion-color-success, #0da02d);
+        }
+
+        ion-label {
+            color: #807e7e !important;
+            font-weight: 300;
+            font-size: 1rem !important;
+        }
+        ion-input {
+            font-family: "Noto Sans JP", sans-serif;
+            color: black;
+        }
+    }
+}
+
+.prodcard {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(128, 0, 128, 0.404);
+    min-height: 8em;
+    width: 90%;
+    margin-top: 14px;
+    padding-top:10px;
+    margin-left: 1.5em;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap");
+

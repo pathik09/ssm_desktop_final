@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "870368201630",
+    "firebase_url": "https://smartstockmanagement-d762e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "smartstockmanagement-d762e",
+    "storage_bucket": "smartstockmanagement-d762e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870368201630:android:d717bdf0772e6add68e48f",
+        "android_client_info": {
+          "package_name": "com.smartstockm.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870368201630-2kcpv0mi21b95lbshp7vm5sd0c213omk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartstockm.app",
+            "certificate_hash": "feb18a54e0c023e3172d148b8b44d03bd39a4812"
+          }
+        },
+        {
+          "client_id": "870368201630-1l713pli4gp0iuige310u3tdbp476lgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq-qx3mTsIfhFtpqxgmlb0qXGyLz_-dj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870368201630-1l713pli4gp0iuige310u3tdbp476lgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870368201630:android:22ef5f61690b869c68e48f",
+        "android_client_info": {
+          "package_name": "com.ssm.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870368201630-1l713pli4gp0iuige310u3tdbp476lgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq-qx3mTsIfhFtpqxgmlb0qXGyLz_-dj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870368201630-1l713pli4gp0iuige310u3tdbp476lgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

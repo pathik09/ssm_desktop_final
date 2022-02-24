@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>choicesuppcust</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content >
+
+    <div class="container">
+      <div style="width: 90%;" class="vertical-center">
+        <ion-card mode="ios" button (click)="gotoPage('add-supplier')" style="text-align: center;">
+         
+          <ion-card-header>
+            <ion-card-title style="font-family: impact;color: rgba(0, 0, 0, 0.644);"> Add Supplier
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+  
+        <div class="h-divider">
+          <div class="shadow"></div>
+          <div class="text"><i> or</i></div>
+        </div>
+  
+        <ion-card mode="ios" button (click)="gotoPage('add-customer')" style="text-align: center;">
+          
+          <ion-card-header>
+            <ion-card-title style="font-family: impact;color: rgba(0, 0, 0, 0.644);"> Add Customer
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </div>
+    </div>
+  
+  </ion-content>
+
+</ion-content>

@@ -1,0 +1,101 @@
+<ion-header>
+  
+  <ion-toolbar style="--background:  rgb(58, 43, 43);  /* fallback for old browsers */
+ 
+  ">
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">PO REPORT 
+      </ion-title>
+      <ion-button (click)="close()" style="padding-top: 5px;" fill='clear' color="primary">
+        <p style="color: white;font-family: Impact;">
+          EXIT
+        </p>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="choice == ''">
+
+  <div class="container">
+    <div style="width: 90%;" class="vertical-center">
+     
+      <div class="h-divider">
+        <div class="shadow"></div>
+        <div class="text"><i>PO Report</i></div>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>
+<div style="height: 100%;background-color: white;" >
+   <ion-item-sliding *ngFor="let po of selpo">
+  <ion-item>
+
+    <div style="display: flex;">
+
+      <div style="width: 20%;">
+        <img style="margin-top: 15px;" src="../../assets/allokey.png" alt="">
+      </div>
+
+      <div style="width: 50%;">
+
+        <div style="padding: 5px;">
+
+          <div style="display: flex;flex-wrap: wrap;justify-content: center;flex-direction: column;">
+
+            <ion-label style="padding: 1px;">
+              <b>
+              Supplier Name
+              </b>
+              {{po.supplier.name}}
+            </ion-label>
+            <ion-label style="padding: 1px;">
+              <b>
+               Supplier Phone
+              </b>
+              {{po.supplier.phone}}
+            </ion-label>
+
+            <ion-label style="padding: 1px;">
+              <b>
+               Stock
+              </b>
+              {{po.stock}}
+            </ion-label>
+
+          </div>
+
+        
+
+      </div>
+      <div style="width: 30%;">
+        <ion-label (click)="call(po.supplier)"
+          style="text-align: right;padding: 10px;font-size: 20px;font-weight: bold;margin-top: 30px;font-family: Open Sans;color: rgba(158, 43, 8, 0.897);">
+          <ion-icon style="position: relative;top: 2px;" name="call"></ion-icon>
+         
+        </ion-label>
+      </div>
+    </div>
+  </div>
+  
+
+
+   
+  
+  </ion-item>
+  
+
+
+
+
+
+<ion-content >
+  
+
+
+
+ 

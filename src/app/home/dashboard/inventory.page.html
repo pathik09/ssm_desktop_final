@@ -1,0 +1,224 @@
+<ion-header>
+
+  <ion-toolbar style="--background:  rgb(58, 43, 43);  /* fallback for old browsers */
+ 
+  ">
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">SmartStock Inventory
+      </ion-title>
+      <ion-icon (click)="addItem()" style="position: relative;top: 0.3em;font-size: 30px;right: 3px;" name="add-circle">
+      </ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div *ngIf="allowed" >
+  <ion-card class="card" (click)="openPOS()">
+      <div style="color: brown;">
+        <ion-icon color="none" style="font-size: 30px;" name="print"></ion-icon>
+      </div>
+      <ion-label class="cardtxt">
+        {{ 'dashboardOne.POS' | translate:params}}
+      </ion-label>
+    </ion-card> 
+    <ion-card class="card" (click)="excelImport()">
+      <div style="color: rgba(0, 128, 28, 0.555);">
+        <ion-icon color="none" style="font-size: 30px;" name="attach"></ion-icon>
+      </div>
+      <ion-label class="cardtxt">
+        {{ 'dashboardOne.UE' | translate:params}}
+      </ion-label>
+    </ion-card>
+
+  </div>
+ 
+  <div class="scrollwrapper">
+    <div class="cards" style="background-color:rgb(24, 118, 180)">
+      <div class="flexdisp centertext">
+        <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color: white;">NUMBER OF ITEMS:</h3>
+
+      </div>
+
+      <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color: white;">{{noofitems}}
+      </ion-label>
+
+    </div>
+
+
+
+    <div class="cards"style="background-color:rgb(24, 118, 180)">
+      <div class="flexdisp centertext">
+        <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color:white"> {{
+          'INVENTORY.lsi'
+          | translate:params}}</h3>
+
+      </div>
+
+      <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color: white">{{lowStock}}
+      </ion-label>
+
+    </div>
+
+
+    
+    <div class="cards" style="background-color:rgb(24, 118, 180)">
+      <div class="flexdisp centertext">
+        <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color: white;">{{
+          'INVENTORY.hsi'
+          | translate:params}}</h3>
+
+      </div>
+
+      <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color:white;">{{highStock}}
+      </ion-label>
+
+    </div>
+    <div class="cards" style="background-color:rgb(24, 118, 180)">
+      <div class="flexdisp centertext">
+        <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color:white">{{
+          'INVENTORY.sv'
+          | translate:params}}</h3>
+
+      </div>
+
+      <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color:white;">{{stockValue}}
+      </ion-label>
+
+    </div>
+
+
+  </div>
+
+  
+
+
+  <div style="margin-top: 1em;max-width: 100%;display: flex;justify-content: center;flex-direction: column;">
+
+    <ion-title
+      style="text-align: center;font-family:'Anton', sans-serif;letter-spacing: 0.6px;margin-top: 0.3em;font-size: 25px;color: black;">
+      {{ 'INVENTORY.si'
+      | translate:params}}
+    </ion-title>
+
+    <div style="display: flex;justify-content: center;align-items: center;">
+
+      <ion-list style="width: 80%;position: relative;top: 1em;" class="line-input">
+        <ion-item lines="none" color="none">
+          <ion-input (ionChange)="searchItem()" [(ngModel)]="searchParam"
+            placeholder="Enter item name or barcode here...">
+          </ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div style="display: flex;justify-content:flex-end;margin-top: 22px;padding-right: 10px;">
+
+    </div>
+
+    <div style="margin-top: 0.2em;display: flex;justify-content: center;">
+      <ion-chip mode='ios' color="primary" (click)="sortLowStock()"> {{ 'INVENTORY.lsf'
+        | translate:params}}<ion-icon name="arrow-down">
+        </ion-icon>
+      </ion-chip>
+      <ion-chip mode='ios' color="primary" (click)="sortAlpha()"> {{ 'INVENTORY.Alphabetical'
+        | translate:params}}</ion-chip>
+      <ion-chip mode='ios' color="primary" (click)="sortPriceDown()"> {{ 'INVENTORY.Price'
+        | translate:params}}<ion-icon name="arrow-down"></ion-icon>
+      </ion-chip>
+      <ion-chip mode='ios' color="primary" (click)="sortPriceUp()"> {{ 'INVENTORY.Price'
+        | translate:params}}<ion-icon name="arrow-up"></ion-icon>
+      </ion-chip>
+    </div>
+  </div>
+
+  <div style="display: flex;justify-content: center;margin-top: 0.5em;flex-direction: column;text-align: center;">
+
+    <div *ngFor="let item of toShow" class="prodcard">
+     
+      <div style="display: flex;justify-content: space-between;">
+        <ion-item class="item-text-wrap">        <ion-title size = "large" style="
+        text-align: left;font-family: 'Sans-serif', sans-serif;color: rgba(0, 0, 0, 0.836);">
+      <ion-icon name="copy-outline"></ion-icon>
+      {{item.name}}({{item.stock}})</ion-title>
+</ion-item>
+        <ion-icon (click)="showOption(item)" style="margin-right: 2px;font-size: 20px;"
+          name="ellipsis-vertical-outline">
+        </ion-icon>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;margin-top: 4px;">
+
+        <div>
+          <ion-title
+            style="text-align: left;font-family: 'Sans-serif', sans-serif;color: rgba(0, 0, 0, 0.39);font-size: 18px;">
+           Stock Available : {{item.stock}} {{item.uom}}</ion-title>
+
+          <br>
+          
+
+          <ion-title
+            style="text-align: left;font-family: 'Secular One', sans-serif;color: rgb(5, 202, 120);font-size: 18px;">
+           Rs.{{item.rPrice}}
+          </ion-title>
+        </div>
+
+        <div style="position: relative;top: 6px;">
+          <ion-label
+            style="display: flex;text-align: left;font-family: 'Secular One', sans-serif;color: palevioletred;font-size: 20px;padding: 10px;border-radius: 14px;margin-right: 10px;position: relative;top: 1em;">
+            Rs.
+
+            {{item.pPrice}}        
+
+
+
+          </ion-label>
+        </div>
+
+      </div>
+
+    
+      <div *ngIf="item.barcode == ' '" style="display: flex;justify-content:flex-end;margin-top: 2px;padding-right: 10px;">
+
+     
+        <ion-button (click)="registerBarcode(item)" expand="block" color="primary" style="padding:2px" fill='outline'
+          mode='ios'>
+          <p style="font-family: helvetica;font-size: 17px;margin-right: 2px;">
+            {{ 'INVENTORY.cs'
+            | translate:params}}
+          </p>
+          <ion-icon style="font-size: 17px;" name="add"></ion-icon>
+        </ion-button>
+
+      </div>
+      <div *ngIf="item.barcode != ' '" style="display: flex;justify-content:flex-end;margin-top: 2px;padding-right: 10px;">
+
+     
+        <ion-button (click)="registerBarcode(item)" expand="block" color="primary" style="padding:2px" fill='outline'
+          mode='ios'>
+          <p style="font-family: helvetica;font-size: 17px;margin-right: 2px;">
+          Change BarCode
+          </p>
+          <ion-icon style="font-size: 17px;" name="add"></ion-icon>
+        </ion-button>
+
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="scanBarcode()">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  
+</ion-content>

@@ -1,0 +1,276 @@
+<ion-header *ngIf="currentPage=='viewsales'">
+  <ion-toolbar style="--background: #2b5876;  /* fallback for old browsers */
+  --background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ">
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">VIEW SALES
+      </ion-title>
+      <ion-button (click)="changePage('dashboard')" style="padding-top: 5px;" fill='clear' color="primary">
+        <p style="color: white;font-family: Impact;">
+          BACK </p>
+      </ion-button>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="currentPage == 'dashboard' || currentPage == 'search'">
+
+  <ion-searchbar (ionChange)="searchItem()" [(ngModel)]="searchParam" mode='ios'>
+  </ion-searchbar>
+</ion-header>
+<ion-content>
+
+
+  <div style="margin-top: 15px;">
+
+  </div>
+
+
+  <div *ngIf="currentPage == 'dashboard'" class="respcardwrapper">
+   
+
+    <ion-card class="card" (click)="addDiscount()">
+      <div style="color: rgb(255, 228, 192);">
+        <ion-icon color="none" style="font-size: 30px;" name="cafe"></ion-icon>
+      </div>
+      <ion-label class="cardtxt">
+        {{ 'POS.c2' | translate:params}}
+      </ion-label>
+    </ion-card>
+
+    
+    <ion-card class="card" (click)="clearRecipt()">
+      <div style="color: rgb(77, 52, 5);">
+        <ion-icon color="none" style="font-size: 30px;" name="refresh"></ion-icon>
+      </div>
+      <ion-label class="cardtxt">
+        {{ 'POS.c5' | translate:params}}
+      </ion-label>
+    </ion-card>
+
+    <ion-card class="card" (click)="endSale()">
+      <div style="color: rgba(5, 139, 45, 0.815);">
+        <ion-icon color="none" style="font-size: 30px;" name="card"></ion-icon>
+      </div>
+      <ion-label class="cardtxt">
+        {{ 'POS.c6' | translate:params}}
+      </ion-label>
+    </ion-card>
+    
+    <ion-card class="card" (click)="generatePO()">
+    <div style="color: rgba(5, 139, 45, 0.815);">
+      <ion-icon color="none" style="font-size: 30px;" name="card"></ion-icon>
+    </div>
+    <ion-label class="cardtxt">
+      Generate Purchase Order
+    </ion-label>
+  </ion-card>
+  <ion-card class="card" (click)="createQuotation()">
+    <div style="color: rgba(5, 139, 45, 0.815);">
+      <ion-icon color="none" style="font-size: 30px;" name="card"></ion-icon>
+    </div>
+    <ion-label class="cardtxt">
+      Generate quotation
+    </ion-label>
+  </ion-card>
+
+ 
+
+  </div>
+
+
+  <div *ngIf="currentPage=='search'">
+    <div *ngIf="searchFound && searchFound.length > 0">
+
+
+
+      <ion-item-sliding *ngFor="let item of searchFound">
+        <ion-item (click)="addSearchItem(item)">
+          <ion-checkbox mode='ios' color="success" slot="end"></ion-checkbox>
+
+          <div style="padding: 5px;">
+            <ion-label style="text-align: center;padding: 10px;font-size: 20px;font-weight: bold;" class="robothin">
+              {{item.name}}
+            </ion-label>
+
+            <div style="display: flex;flex-wrap: wrap;justify-content: center;">
+
+              <ion-label style="padding: 1px;">
+                <b>
+                  {{ 'POS.pr' | translate:params}}:
+                </b> {{item.rPrice}}
+              </ion-label>
+              <ion-label style="padding: 1px;">
+                <b>
+                  {{ 'POS.br' | translate:params}}:
+                </b>
+                {{item.barcode}}
+              </ion-label>
+
+              <ion-label style="padding: 1px;">
+                <b>
+                  {{ 'POS.st' | translate:params}}
+                </b>
+                {{item.stock}}
+              </ion-label>
+
+            </div>
+
+          </div>
+
+        </ion-item>
+
+        <ion-item-options>
+          <ion-item-option color="danger">
+
+            <ion-label>DELETE</ion-label>
+
+          </ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </div>
+
+  </div>
+
+ 
+
+    
+
+     
+
+
+
+    
+
+  
+
+
+    <div *ngIf="recipt && recipt.length > 0">
+      <h2 style="text-align: center;"> {{ 'POS.total' | translate:params}}: {{total}}</h2>
+
+      <ion-card *ngFor="let item of recipt;let i = index" style="padding: 10px;color: black;" class="items">
+        <img style="object-fit: contain;height: 4em;" src="../../assets/prodicon.png" alt="">
+
+        <div style="width: 60%;">
+
+          <ion-title style="color: rgba(0, 0, 0, 0.705);" class="opensans">{{item.name}}</ion-title>
+
+          <div style="display: flex;">
+
+            <ion-chip style="font-family: Impact;" fill="outline" color="success">
+              {{ 'POS.is' | translate:params}}
+            </ion-chip>
+
+
+            <ion-chip mode='ios' style="padding-left: 20px;padding-right: 20px;font-weight: bold;" color="medium">
+              <ion-label class="opensans">Quantity</ion-label>x <ion-input [(ngModel)]="item.quantity"
+                (ionChange)="calculateTotal()" type="number" placeholder="{{item.quantity}}">
+              </ion-input>
+            </ion-chip>
+            <ion-icon style="position: relative;top: 0.8em;left: -1.5em;" color="danger" name="create-outline">
+            </ion-icon>
+
+          </div>
+
+        </div>
+
+        <div style="margin-top: 1.5em;">
+          <ion-title style="color: #4e4376;" class="opensans">{{item.rPrice}}</ion-title>
+        </div>
+        <div (click)="deleteItem(i)" style="position: relative;top: -1em;z-index: 1;">
+          <ion-icon style="font-size: 32px;" color="danger" name="trash"></ion-icon>
+
+        </div>
+      </ion-card>
+    </div>
+
+
+  
+
+  <div style="height: 100%;background-color: white;" *ngIf="currentPage=='viewsales'">
+    <ion-item-sliding *ngFor="let sale of statSales.sales">
+      <ion-item>
+
+        <div style="display: flex;">
+
+          <div style="width: 20%;">
+            <img style="margin-top: 15px;" src="../../assets/allokey.png" alt="">
+          </div>
+
+          <div style="width: 50%;">
+
+            <div style="padding: 5px;">
+              <ion-label *ngIf="sale.cName"
+                style="text-align: center;padding: 10px;font-size: 20px;font-weight: bold;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                {{sale.cName}}
+              </ion-label>
+
+              <div style="display: flex;flex-wrap: wrap;justify-content: center;flex-direction: column;">
+
+                <ion-label style="padding: 1px;">
+                  <b>
+                    {{ 'POS.date' | translate:params}}
+                  </b>
+                  {{sale.date | date:'dd/MM/yyyy'}}
+                </ion-label>
+                <ion-label style="padding: 1px;">
+                  <b>
+                    {{ 'POS.sold' | translate:params}}
+                  </b>
+                  {{sale.soldBy}}
+                </ion-label>
+
+                <ion-label style="padding: 1px;">
+                  <b>
+                    {{ 'POS.items' | translate:params}}
+                  </b>
+                  <span *ngIf="sale.recipt">{{sale.recipt.length}}</span>
+                </ion-label>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div style="width: 30%;">
+            <ion-label
+              style="text-align: right;padding: 10px;font-size: 20px;font-weight: bold;margin-top: 30px;font-family: Open Sans;color: rgba(158, 43, 8, 0.897);">
+              <ion-icon style="position: relative;top: 2px;" name="arrow-back"></ion-icon>
+              {{ 'POS.swipe' | translate:params}}
+            </ion-label>
+          </div>
+        </div>
+
+      </ion-item>
+
+      <ion-item-options>
+        <ion-item-option color="light">
+
+          <ion-label> {{ 'POS.total' | translate:params}} {{sale.total}}</ion-label>
+
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </div>
+
+ 
+</ion-content>
+
+<ion-footer *ngIf="currentPage !='viewsales'" class="footer">
+
+  <div style="display: flex;color: white;position: relative;top: 0.5em;">
+    <ion-icon  (click)="back()" style="font-size: 25px;margin-left: 6px;"
+      name="close-circle"></ion-icon>
+      
+
+    <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">BACK
+    </ion-title>
+
+  </div>
+
+</ion-footer>

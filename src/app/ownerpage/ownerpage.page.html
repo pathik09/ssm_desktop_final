@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Please enter your mobile number</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-row>
+    <ion-col>
+      <ion-input [(ngModel)]="mno" type="number" placeholder="Enter your mobile number associated with ssm.."></ion-input> 
+    </ion-col>
+      <ion-col size="12">
+        <ion-button type="submit" (click)="fetchData()" expand="full">Login</ion-button>
+      </ion-col>
+    </ion-row>
+   
+    
+  
+</ion-content>

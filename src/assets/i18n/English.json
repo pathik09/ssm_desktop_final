@@ -1,0 +1,127 @@
+{
+    "ViewOne": {
+        "headinOne": "SMARTSHOP",
+        "subheadOne": "MANAGEMENT",
+        "headinTwo": "CHOOSE A LANGUAGE",
+        "headinthree": "SELECT A DEFUALT LANGUAGE SUITABLE FOR YOU"
+    },
+    "ViewTwo": {
+        "headinOne": "WELCOME",
+        "headinTwo": "Sign In To Use Our Services",
+        "headinthree": "ENTER PHONE NUMBER TO GET OTP",
+        "headinfour": "  On proceeding you agree to accept our",
+        "headinfive": "terms & condtions"
+    },
+    "ViewThree": {
+        "headinOne": "ENTER 6-DIGIT OTP",
+        "headinTwo": "We sent you a 6 digit code on",
+        "headinthree": "to verify your phone number",
+        "headinfour": "Didn't recieved yet?"
+    },
+    "dashboardOne": {
+        "overView": "OVERVIEW",
+        "prod": "Products",
+        "help": "Active Staff",
+        "rp": "Registered Suppliers",
+        "borr": "Settings",
+        "ds": "Daily Statistics",
+        "sales": "SALES",
+        "rev": "REVENUE",
+        "pr": "PROFIT",
+        "AI": "Add Item",
+
+        "UE": "Add bulk Item through excel",
+        "AS": "Add Party",
+        "POS": "Generate Invoice"
+    },
+    "POS": {
+        "c1": "View Sales",
+        "c2": "Add Discount",
+        "c3": "View Cart",
+        "c4": "Add Note",
+        "c5": "Reset POS",
+        "c6": "Generate Invoice",
+        "pr": "Price",
+        "br": "Barcode",
+        "st": "Stock",
+        "overView": "OVERVIEW",
+        "s": "Sales Today",
+        "r": "Revenue Today",
+        "p": "Profits",
+        "car": "CART",
+        "total": "TOTAL",
+        "dt": "DISCOUNTED TOTAL",
+        "dis": "Discount",
+        "is": "Instock",
+        "c": "Clear",
+        "d": "Dashboard",
+        "date": "DATE",
+        "sold": "SOLD BY",
+        "items": "ITEMS",
+        "swipe": "SWIPE"
+    },
+    "INVENTORY": {
+        "tc": "TO COLLECT",
+        "sv": "STOCK VALUE",
+        "lsi": "LOW STOCK ITEMS",
+        "sales": "SALES",
+        "hsi": "HIGH STOCK ITEMS",
+        "si": "SEARCH ITEM",
+        "lsf": "Low stock first",
+        "Alphabetical": "Alphabetical",
+        "Price": "Price",
+        "cs": "Register Barcode",
+        "as": "Add Supplier"
+    },
+    "BUSINESS PAGE": {
+        "bh": "Please add/change appropriate information",
+        "nm": "Your Name",
+        "bs": "Your Business Name",
+        "cn": "Contdinue",
+        "ih": "Invite Staff",
+        "ah": "Staff Requests",
+        "s": "Help Center",
+        "ln": "Languages",
+        "bi": "Business Information",
+        "desktop": "Register for desktop login"
+    },
+    "SETTINGS": {
+        "m": "Membership",
+        "ue": "Add Bulk Items",
+        "Pr": "Products",
+        "c": "Charts",
+        "ih": "Invite Staff",
+        "ah": "Staff Requests",
+        "s": "Help Center",
+        "ln": "Languages",
+        "bi": "Business Information",
+        "desktop": "Register for desktop login"
+    },
+    "UPLOADEXCEL": {
+        "btn": "Add Items",
+        "ins": "Please download the csv file, and arrange your file as mentioned in the csv file and upload here."
+    },
+    "ADDITEM": {
+        "ins": "",
+        "ai": "ADD ITEM",
+        "or":"OR",
+        "ub":"USING BARCODE",
+        "m":"MANUALLY",
+        "addsupplier":"Add Supplier",
+        "addcustomer":"add Customer"
+    },
+    
+    "Cart":{
+        "su":"Subscribe for Premium Features",
+        "noads":"No Ads",
+        "serverdata":"Data saved on server",
+        "po":"Purchase Order Management",
+        "ledger":"Ledger Report",
+        "mu":"Multi-user support(owner/staff)",
+        "pc":"Use on Desktop(pc)",
+        "cn":"Cancel Anytime(no questions asked)"
+
+
+    }
+
+}

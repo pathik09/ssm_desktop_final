@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar style="--background: #2b5876;  /* fallback for old browsers */
+  --background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ">
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">Select from suppliers
+      </ion-title>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: flex;justify-content: center;align-items: center;">
+
+    <ion-list style="width: 80%;position: relative;top: 1em;" class="line-input">
+      <ion-item lines="none" color="none">
+        <ion-input (ionChange)="searchItem()" [(ngModel)]="searchParam"
+          placeholder="enter supplier name to search...">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngFor="let boi of toShow">
+    <ion-item mode="ios" button (click)="selectSupplier(boi)">
+      {{boi.name}}  {{boi.phone}}
+    </ion-item>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="addSupplier()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

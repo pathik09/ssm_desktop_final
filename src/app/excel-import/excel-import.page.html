@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-toolbar style="--background:  rgb(58, 43, 43);  /* fallback for old browsers */
+ 
+  ">    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">Upload Excel File
+      </ion-title>
+      
+      <ion-icon (click)="close()" style="position: relative;top: 0.3em;font-size: 30px;right: 3px;" color="light"
+        name="close-circle">
+      </ion-icon>
+      
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div style="padding:10px">
+    <ion-label class="assis">
+    
+      {{'UPLOADEXCEL.ins' | translate:params}}
+    </ion-label>
+
+    <input type="file" (change)="selectFile($event)">
+
+    <div *ngIf="tempItems" style="margin-top: 1em;">
+      <ion-item *ngFor="let item of tempItems">
+        {{item.name}}
+      </ion-item>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer style="padding: 5px;">
+  <ion-button *ngIf="tada" mode='ios' size="block" (click)="addItems()"> {{ 'UPLOADEXCEL.btn' | translate:params}}
+  </ion-button>
+  <ion-button *ngIf="!tada" mode='ios' disabled='true' size="block"> {{ 'UPLOADEXCEL.btn' |
+    translate:params}}</ion-button>
+</ion-footer>

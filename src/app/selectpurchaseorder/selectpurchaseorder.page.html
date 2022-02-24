@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar style="--background: #2b5876;  /* fallback for old browsers */
+  --background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ">
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">Select from Purchase Orders
+      </ion-title>
+      <ion-button (click)="close()" style="padding-top: 5px;" fill='clear' color="primary">
+        <p style="color: white;font-family: Impact;">
+          EXIT
+        </p>
+      </ion-button>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let boi of selectedpurchaseorder">
+    <ion-item mode="ios" button (click)="selectSupplier(boi)">
+      {{boi.supplier.name}}        {{boi.stock}} 
+    </ion-item>
+  </div>
+  <div *ngIf="noitem">
+
+
+    <ion-label
+      style="font-family: impact;color: rgba(128, 128, 128, 0.616);position: relative;top: 10em;text-align: center;font-size: 32px;display: flex;justify-content: center;align-items: center;">
+      NOTHING TO SHOW...!
+    </ion-label>
+
+  </div>
+
+  
+  </ion-content>

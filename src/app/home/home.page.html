@@ -1,0 +1,40 @@
+<ion-tabs>
+  <div *ngIf="usertype=='Owner'">
+  <ion-tab-bar style="--background: rgba(255, 255, 255, 0.164)  " slot="bottom">
+    
+    <ion-tab-button tab="dashboard" layout="icon-top">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+    
+
+
+    <ion-tab-button tab="inventory" layout="icon-top">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-label>Inventory</ion-label>
+    </ion-tab-button>
+
+     <ion-tab-button tab="borrowers" layout="icon-top">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label>Staff</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="customer" layout="icon-top">
+      <ion-icon name="happy-outline"></ion-icon>
+      <ion-label>Customer</ion-label>
+    </ion-tab-button>
+
+
+
+    <ion-tab-button tab="suppliers" layout="icon-top">
+      <ion-icon name="accessibility-outline"></ion-icon>
+      <ion-label>Suppliers</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="settings" layout="icon-top">
+      <ion-icon name="cog"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+ 
+  </ion-tab-bar>
+</div>
+
+</ion-tabs>

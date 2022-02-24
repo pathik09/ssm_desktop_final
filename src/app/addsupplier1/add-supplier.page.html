@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar style="--background: #2b5876;  /* fallback for old browsers */
+  --background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  ">
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">ADD PARTY
+      </ion-title>
+      <ion-button (click)="close()" style="padding-top: 5px;" fill='clear' color="primary">
+        <p style="color: white;font-family: Impact;">
+          EXIT
+        </p>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="choice == ''">
+
+  <div class="container">
+    <div style="width: 90%;" class="vertical-center">
+      <ion-card mode="ios" button (click)="setChoice('supplier')" style="text-align: center;">
+        <img style="height: 3em;object-fit: contain;" src="../../../assets/supplier.png" alt="">
+       
+        <ion-card-header>
+          <ion-card-title style="font-family: impact;color: rgba(0, 0, 0, 0.644);"> {{'ADDITEM.addsupplier'| translate:params}}
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <div class="h-divider">
+        <div class="shadow"></div>
+        <div class="text"><i> {{'ADDITEM.or'| translate:params}}</i></div>
+      </div>
+
+      <ion-card mode="ios" button (click)="setChoice('customer')" style="text-align: center;">
+        <img style="height: 3em;object-fit: contain;" src="../../../assets/customer.png" alt="">
+        
+        <ion-card-header>
+          <ion-card-title style="font-family: impact;color: rgba(0, 0, 0, 0.644);"> {{'ADDITEM.addcustomer'| translate:params}}
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
+
+
+
+<ion-content *ngIf="choice == 'supplier'"> 
+  
+
+  <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+    <div
+      style="margin-top: 1em;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+
+      <h2 style="font-family: 'Roboto Condensed', sans-serif;font-size:29px">
+        ADD A SUPPLIER
+      </h2>
+
+      <div align="center">
+        <ion-button shape="round" (click)="showContact()">Add from phone</ion-button>
+      </div>
+
+      <ion-item style="margin-top: 15px;" lines="none">
+        <ion-input placeholder="Enter name of supplier" [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+      <ion-item style="margin-top: 15px;" lines="none">
+        <ion-input type="tel" placeholder="Enter phone of supplier" [(ngModel)]="phone"></ion-input>
+      </ion-item>
+      <ion-item style="margin-top: 15px;" lines="none">
+        <ion-input type="text" placeholder="Enter Company Name of supplier" [(ngModel)]="company_name"></ion-input>
+      </ion-item>
+
+      <ion-item style="margin-top: 15px;" lines="none">
+        <ion-input type="text" placeholder="Enter Address of supplier" [(ngModel)]="address"></ion-input>
+      </ion-item>
+
+
+
+
+      <div style="margin-top: 25px;width: 60%;">
+        <ion-button class="shadow-red" (click)="addSupplier()" color="none" style="background: #2b5876;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4e4376, #2b5876);" expand='block' mode='ios'>
+          <p style="font-family: Impact;color: rgba(255, 255, 255, 0.897);">
+            Continue
+          </p>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+    </div>
+
+  </div>
+  </ion-content>
+  <ion-content *ngIf="choice == 'customer'"> 
+  
+
+    <div style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+      <div
+        style="margin-top: 1em;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+  
+        <h2 style="font-family: 'Roboto Condensed', sans-serif;font-size:29px">
+          ADD A Customer
+        </h2>
+        <div align="center">
+          <ion-button shape="round" (click)="showContact()">Add from phone</ion-button>
+        </div>
+  
+  
+        
+        <ion-item style="margin-top: 15px;" lines="none">
+          <ion-input placeholder="Enter name of Customer" [(ngModel)]="name"></ion-input>
+        </ion-item>
+  
+        <ion-item style="margin-top: 15px;" lines="none">
+          <ion-input type="tel" placeholder="Enter phone of customer" [(ngModel)]="phone"></ion-input>
+        </ion-item>
+
+        <ion-item style="margin-top: 15px;" lines="none">
+          <ion-input  placeholder="Enter Address of customer" [(ngModel)]="address"></ion-input>
+        </ion-item>
+        
+  
+        <ion-item style="margin-top: 15px;" lines="none">
+          <ion-input  placeholder="Enter GSTIN of customer" [(ngModel)]="gstin"></ion-input>
+        </ion-item>
+  
+  
+  
+  
+        <div style="margin-top: 25px;width: 60%;">
+          <ion-button class="shadow-red" (click)="addCustomer()" color="none" style="background: #2b5876;  /* fallback for old browsers */
+          background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(to right, #4e4376, #2b5876);" expand='block' mode='ios'>
+            <p style="font-family: Impact;color: rgba(255, 255, 255, 0.897);">
+              Continue
+            </p>
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </ion-button>
+        </div>
+  
+      </div>
+  
+    </div>
+    </ion-content>

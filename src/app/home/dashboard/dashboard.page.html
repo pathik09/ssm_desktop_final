@@ -1,0 +1,175 @@
+<ion-header>
+
+   
+      
+   
+ 
+  <ion-toolbar style="--background:  rgb(58, 43, 43);  /* fallback for old browsers */
+ 
+  ">
+     
+   
+    <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">SmartStock Management
+      </ion-title>
+      
+      
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="textalignleft">
+
+    <div style="display: flex;justify-content: center;margin-top: 0.3em;width: 100%;">
+      <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.082);border-radius:14px;margin-top: 4px;width: 96%;background: #0f0c29;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, rgb(58, 43, 43),grey);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, rgb(58, 43, 43),grey); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        ">
+        <ion-title style="color: white;font-size: 28px;" class="hello">
+          {{ 'dashboardOne.overView' | translate:params}}
+        </ion-title>
+
+        <div class="respcardwrapper">
+
+          <ion-card style="background: white;" class="card" (click)="gotTotPage('home/inventory')">
+            <div style="color: purple;">
+              <ion-icon color="none" style="font-size: 30px;" name="cart-outline"></ion-icon>
+            </div>
+            <ion-label class="cardtxt">
+              <span *ngIf="items">{{items.length}}</span><span *ngIf="!items">0</span> {{ 'dashboardOne.prod' |
+              translate:params}}
+            </ion-label>
+          </ion-card>
+
+          <ion-card style="background: white;" class="card" (click)="gotTotPage('home/borrowers')">
+            <div style="color: rgb(24, 224, 114);">
+              <ion-icon color="none" style="font-size: 30px;" name="person-circle-outline"></ion-icon>
+            </div>
+            <ion-label class="cardtxt">
+              <span *ngIf="helpers">{{helpers.length}}</span><span *ngIf="!helpers">0</span> {{ 'dashboardOne.help'
+              | translate:params}}
+            </ion-label>
+          </ion-card>
+
+          <ion-card style="background: white;" class="card" (click)="gotTotPage('home/suppliers')">
+            <div style="color: rgb(25, 94, 223);">
+              <ion-icon color="none" style="font-size: 30px;" name="accessibility-outline"></ion-icon>
+            </div>
+            <ion-label class="cardtxt">
+              <span *ngIf="suppliers">{{suppliers.length}}</span><span *ngIf="!suppliers">0</span> {{ 'dashboardOne.rp'
+              | translate:params}}
+            </ion-label>
+          </ion-card>
+
+
+          <ion-card style="background: white;" class="card" (click)="gotTotPage('home/customer')">
+            <div style="color: rgb(121, 49, 168);">
+              <div style="color: rgb(189, 88, 22);">
+                <ion-icon color="none" style="font-size: 30px;" name="happy-outline"></ion-icon>
+              </div>
+              
+            </div>
+            <ion-label class="cardtxt">
+              <span *ngIf="customers">{{customers.length}}</span><span *ngIf="!customers">0</span> Customers
+            </ion-label>
+
+          </ion-card>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="scrollwrapper">
+    
+
+      <div class="cards" style="background-color:rgb(202, 221, 233)" >
+        <div class="flexdisp centertext">
+          <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color:rgb(15, 15, 15)"> {{ 'dashboardOne.sales' | translate:params}}</h3>
+  
+        </div>
+  
+        <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color: rgb(27, 133, 194);">{{statSales}}
+        </ion-label>
+  
+      </div>
+  
+      <div class="cards" style="background-color:rgb(213, 230, 202)">
+        <div class="flexdisp centertext">
+          <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color:rgb(7, 8, 7)">   {{ 'dashboardOne.rev' | translate:params}}</h3>
+  
+        </div>
+  
+        <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color: rgb(89, 196, 18)">{{revenue}}
+        </ion-label>
+  
+      </div>
+  
+      <div class="cards" style="background-color:rgb(243, 215, 189)">
+        <div class="flexdisp centertext">
+          <h3 style="font-size:15px;font-weight: light;font-family: 'Secular One', sans-serif;color: rgb(15, 14, 14);">{{ 'dashboardOne.pr' | translate:params}}</h3>
+  
+        </div>
+  
+        <ion-label style="font-size: 25px;font-family: 'Anton', sans-serif;color: rgb(243, 113, 7);">{{[profit]}}
+        </ion-label>
+  
+      </div>
+  
+    </div>
+  
+    
+
+    <div class="flex">
+
+      <ion-card class="card" (click)="addItem()">
+        <div style="color: pink;">
+          <ion-icon color="none" style="font-size: 30px;" name="prism"></ion-icon>
+        </div>
+        <ion-label class="cardtxt">
+          {{ 'dashboardOne.AI' | translate:params}}
+        </ion-label>
+      </ion-card>
+
+      <ion-card class="card" (click)="excelImport()">
+        <div style="color: rgba(0, 128, 28, 0.555);">
+          <ion-icon color="none" style="font-size: 30px;" name="attach"></ion-icon>
+        </div>
+        <ion-label class="cardtxt">
+          {{ 'dashboardOne.UE' | translate:params}}
+        </ion-label>
+      </ion-card>
+
+
+      <ion-card class="card" (click)="addSupplier()">
+        <div style="color: purple;">
+          <ion-icon color="none" style="font-size: 30px;font-weight: bold;" name="add-circle"></ion-icon>
+        </div>
+        <ion-label class="cardtxt">
+          {{ 'dashboardOne.AS' | translate:params}}
+        </ion-label>
+      </ion-card>
+
+
+      <ion-card class="card" (click)="openPOS()">
+        <div style="color: brown;">
+          <ion-icon color="none" style="font-size: 30px;" name="print"></ion-icon>
+        </div>
+        <ion-label class="cardtxt">
+          {{ 'dashboardOne.POS' | translate:params}}
+        </ion-label>
+      </ion-card>
+
+
+    </div>
+
+    
+
+
+  </div>
+
+
+</ion-content>

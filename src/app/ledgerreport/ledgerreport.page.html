@@ -1,0 +1,162 @@
+<ion-header>
+ 
+  <ion-toolbar style="--background:  rgb(58, 43, 43);  /* fallback for old browsers */
+ 
+  ">   <div style="display: flex;color: white;">
+      <img style="height: 3em;object-fit: contain;" src="../../../assets/logo.png" alt="">
+      <ion-title style="text-align: center;color: white;  font-family: 'Francois One', sans-serif;">LEDGER REPORT 
+      </ion-title>
+      <ion-button (click)="close()" style="padding-top: 5px;" fill='clear' color="primary">
+        <p style="color: white;font-family: Impact;">
+          EXIT
+        </p>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-text color="success">
+  
+  
+  
+ </ion-text>
+
+ <b><h1>{{item_name}}</h1></b>
+
+ <ion-text color="success">
+  <b><h1>STOCK IN</h1></b> 
+ 
+ 
+</ion-text>
+
+<ion-content class="ion-margin">
+  <ion-grid class="ion-margin">
+    
+    <ion-row *ngFor="let sio of intendedsio" >
+      <ion-col>
+        Purchase Number<br>
+        Date:<br>
+        Name<br>
+        quantity<br>
+          Amount<br>
+          <div *ngIf="!sio.returned">         Purchase Return </div>
+          <div *ngIf="sio.returned" style="color: rgb(218, 17, 44);">
+            Returned Date<br>
+            Returned Quantity<br>
+            Returned Amount
+          </div>
+          
+
+
+      </ion-col>
+      <ion-col>
+        {{sio.maxStockAdded}}<br>{{sio.Date}}<br>
+      {{sio.customer_name}}<br>
+      {{sio.stock}}
+      <br>
+      {{sio.purchaseprice}}<br>
+      
+      <div *ngIf="!sio.returned" style="color: rgb(218, 17, 44);">
+        <ion-icon (click)="edit(sio)" color="none" style="font-size: 30px;" name="arrow-redo-outline"></ion-icon>
+             </div>
+             <div *ngIf="sio.returned" style="color: rgb(218, 17, 44);">
+              {{sio.returneddate}}<br>
+              {{sio.returnedquantity}}<br>
+             {{sio.returnedamount}}
+            </div>
+            
+      
+    </ion-col>
+      
+          
+
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="!intendedsio">
+
+
+    <ion-label
+      style="font-family: impact;color: rgba(128, 128, 128, 0.616);position: relative;top: 10em;text-align: center;font-size: 32px;display: flex;justify-content: center;align-items: center;">
+      NOTHING TO SHOW...!
+    </ion-label>
+
+  </div>
+
+ 
+ 
+</ion-content>
+<ion-text color="red">
+ <h1>STOCK OUT</h1> 
+ 
+</ion-text>
+
+
+<ion-content class="ion-margin">
+  <ion-grid class="ion-margin">
+    
+    <ion-row *ngFor="let sio of stockin" >
+      <ion-col>
+        Sale Number<br>
+        Date:<br>
+        Name<br>
+        quantity<br>
+          Amount<br>
+          <div *ngIf="!sio.returned">          Sales Return</div>
+          <div *ngIf="sio.returned" style="color: rgb(218, 17, 44);">
+            Returned Date<br>
+            Returned Quantity<br>
+            Returned Amount
+          </div>
+          
+
+
+          
+
+
+      </ion-col>
+      <ion-col>{{sio.maxStockAdded}}<br>{{sio.Date}}<br>
+      {{sio.customer_name}}<br>
+      {{sio.stock}}
+      <br>
+      {{sio.amount}}<br>
+      <div *ngIf="!sio.returned" style="color: rgb(218, 17, 44);">
+        <ion-icon (click)="edit(sio)" color="none" style="font-size: 30px;" name="arrow-undo-outline"></ion-icon>
+             </div>
+             <div *ngIf="sio.returned" style="color: rgb(218, 17, 44);">
+              {{sio.returneddate}}<br>
+              {{sio.returnedquantity}}<br>
+             {{sio.returnedamount}}
+            </div>
+            
+       
+     
+    </ion-col>
+      
+          
+
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="!stockin">
+
+
+    <ion-label
+      style="font-family: impact;color: rgba(128, 128, 128, 0.616);position: relative;top: 10em;text-align: center;font-size: 32px;display: flex;justify-content: center;align-items: center;">
+      NOTHING TO SHOW...!
+    </ion-label>
+
+  </div>
+
+
+ 
+ 
+</ion-content>
+
+
+
+<ion-content >
+  
+
+<ion-content >
+
+ 
